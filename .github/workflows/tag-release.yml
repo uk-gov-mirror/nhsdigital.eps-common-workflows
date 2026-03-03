@@ -339,6 +339,8 @@ jobs:
                   EXTRA_ASSET: ${{ inputs.extra_artifact_name }}
                   PYPI_PUBLISH: ${{ inputs.pypi_publish }}
                   PYPI_TEST_PUBLISH: ${{ inputs.pypi_test_publish }}
+                  PYPI_TOKEN: ${{ secrets.PYPI_TOKEN }}
+                  PYPI_TEST_TOKEN: ${{ secrets.PYPI_TEST_TOKEN }}
 
             - name: Create semantic release tag
               if: ${{ !inputs.dry_run }}

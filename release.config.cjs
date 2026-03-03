@@ -5,8 +5,8 @@ const commitTemplate = readFileSync("./releaseNotesTemplates/commit.hbs").toStri
 const publish_packages = process.env.PUBLISH_PACKAGES?.split(",").map(s => s.trim()).filter(s => s.length > 0) || []
 const mainBranch = process.env.MAIN_BRANCH || "main"
 
-const pypiPublish = process.env.PYPI_PUBLISH || false
-const pypiTestPublish = process.env.PYPI_TEST_PUBLISH || false
+const pypiPublish = process.env.PYPI_PUBLISH?.toLowerCase() === 'true' || false
+const pypiTestPublish = process.env.PYPI_TEST_PUBLISH?.toLowerCase() === 'true' || false
 const pypiRepoUrl = pypiTestPublish ? "https://test.pypi.org/legacy/" : "https://upload.pypi.org/legacy/"
 const pypiToken = pypiTestPublish ? process.env.PYPI_TEST_TOKEN : process.env.PYPI_TOKEN
 
