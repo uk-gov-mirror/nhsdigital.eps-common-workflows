@@ -12,6 +12,7 @@ The workflows that are available to use are
 - [Get Repo Config](#get-repo-config)
 - [Quality Checks](#quality-checks)
 - [Quality Checks - Dev Container Version](#quality-checks---dev-container-version)
+- [Update Dev Container Version](#update-dev-container-version)
 - [Tag Release](#tag-release)
 - [Tag Release - Devcontainer Version](#tag-release---devcontainer-version)
 
@@ -248,6 +249,47 @@ jobs:
       docker_images: fhir-facade,validator
     secrets:
       SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+```
+
+## Update Dev Container Version
+This workflow updates `.devcontainer/devcontainer.json` with the latest published `v*` version for your configured devcontainer image from GHCR, then opens (or updates) a pull request with that change.
+
+#### Requirements
+
+- `.devcontainer/devcontainer.json` must include `build.args.IMAGE_NAME` and `build.args.IMAGE_VERSION`.
+- `AUTOMERGE_APP_ID` and `AUTOMERGE_PEM` secrets must be configured so the workflow can create a GitHub App token for PR creation.
+
+#### Inputs
+
+- `base_branch`: Target branch for the pull request. Default: `main`.
+
+#### Secret Inputs
+
+- `AUTOMERGE_APP_ID`: GitHub App ID used to generate an installation token.
+- `AUTOMERGE_PEM`: GitHub App private key used to generate an installation token.
+
+#### Outputs
+
+None
+
+#### Example
+
+To use this workflow in your repository, call it from another workflow file:
+
+```yaml
+name: Update Devcontainer Version
+
+on:
+  workflow_dispatch:
+
+jobs:
+  update_devcontainer_version:
+    uses: NHSDigital/eps-common-workflows/.github/workflows/update-dev-container-version.yml@f5c8313a10855d0cc911db6a9cd666494c00045a
+    with:
+      base_branch: main
+    secrets:
+      AUTOMERGE_APP_ID: ${{ secrets.AUTOMERGE_APP_ID }}
+      AUTOMERGE_PEM: ${{ secrets.AUTOMERGE_PEM }}
 ```
 
 ## Tag Release
