@@ -74,7 +74,7 @@ on:
 jobs:
     tag_release:
         permissions:
-          id-token: 'write'
+            id-token: "write"
         runs-on: ubuntu-22.04
         container:
             image: ${{ inputs.pinned_image }}
@@ -133,7 +133,7 @@ jobs:
                   cp releaseNotesTemplates/commit.hbs ../releaseNotesTemplates/
                   cp -r packages/semantic_release_jira ../packages/
                   echo "Current dir is ${PWD}"
-                  ls ../packages/
+                  echo "NODE_PATH=$(npm root --quiet -g)" >> "$GITHUB_ENV"
             - name: Setup Git branch for semantic-release
               run: |
                   # When running from a PR, GitHub checks out a merge commit
