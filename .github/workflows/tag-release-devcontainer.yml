@@ -131,8 +131,9 @@ jobs:
                   cp release.config.cjs ../ 
                   mkdir -p ../releaseNotesTemplates 
                   cp releaseNotesTemplates/commit.hbs ../releaseNotesTemplates/
-                  cp -r packages/ ../packages/
+                  cp -r packages/semantic_release_jira ../packages/
                   echo "Current dir is ${PWD}"
+                  ls ../packages/
             - name: Setup Git branch for semantic-release
               run: |
                   # When running from a PR, GitHub checks out a merge commit
