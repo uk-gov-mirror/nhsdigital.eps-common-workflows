@@ -257,7 +257,7 @@ This workflow updates `.devcontainer/devcontainer.json` with the latest publishe
 #### Requirements
 
 - `.devcontainer/devcontainer.json` must include `build.args.IMAGE_NAME` and `build.args.IMAGE_VERSION`.
-- `AUTOMERGE_APP_ID` and `AUTOMERGE_PEM` secrets must be configured so the workflow can create a GitHub App token for PR creation.
+- `CREATE_PULL_REQUEST_APP_ID` and `CREATE_PULL_REQUEST_PEM` secrets must be configured so the workflow can create a GitHub App token for PR creation.
 
 #### Inputs
 
@@ -265,8 +265,8 @@ This workflow updates `.devcontainer/devcontainer.json` with the latest publishe
 
 #### Secret Inputs
 
-- `AUTOMERGE_APP_ID`: GitHub App ID used to generate an installation token.
-- `AUTOMERGE_PEM`: GitHub App private key used to generate an installation token.
+- `CREATE_PULL_REQUEST_APP_ID`: GitHub App ID used to generate an installation token.
+- `CREATE_PULL_REQUEST_PEM`: GitHub App private key used to generate an installation token.
 
 #### Outputs
 
@@ -288,8 +288,8 @@ jobs:
     with:
       base_branch: main
     secrets:
-      AUTOMERGE_APP_ID: ${{ secrets.AUTOMERGE_APP_ID }}
-      AUTOMERGE_PEM: ${{ secrets.AUTOMERGE_PEM }}
+      CREATE_PULL_REQUEST_APP_ID: ${{ secrets.CREATE_PULL_REQUEST_APP_ID }}
+      CREATE_PULL_REQUEST_PEM: ${{ secrets.CREATE_PULL_REQUEST_PEM }}
 ```
 
 ## Tag Release
