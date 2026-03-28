@@ -53,6 +53,7 @@ jobs:
               with:
                   ref: ${{ env.BRANCH_NAME }}
                   fetch-depth: 0
+                  persist-credentials: false
 
             - name: Load config value
               id: load-config
