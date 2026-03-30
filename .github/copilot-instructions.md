@@ -7,6 +7,7 @@
 Check the following files for any project-specific coding standards or guidelines:
 - .github/instructions/project/instructions.md
 - If no project-specific conventions are defined there, use the general and language-specific best practices referenced below.
+- Language-specific instructions may also be found in the language-specific instruction files listed below. Always check those for any additional guidelines or standards that may apply to your codebase.
 
 ## Language-Specific Instructions
 Always follow security best practices as outlined in:
