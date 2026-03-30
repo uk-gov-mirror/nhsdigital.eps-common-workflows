@@ -1,11 +1,12 @@
-## Project-Specific instructions
-Check the following files for any project-specific coding standards or guidelines:
-- .github/instructions/project/instructions.md
-
 # Base Coding Standards
 - Follow clean code principles
 - Write comprehensive tests
 - Use meaningful variable names
+
+## Project-Specific instructions
+Check the following files for any project-specific coding standards or guidelines:
+- .github/instructions/project/instructions.md
+- If no project-specific conventions are defined there, use the general and language-specific best practices referenced below.
 
 ## Language-Specific Instructions
 Always follow security best practices as outlined in:
@@ -17,8 +18,3 @@ Follow additional language-specific guidelines in:
 - .github/instructions/languages/terraform.instructions.md
 - .github/instructions/languages/sam.instructions.md
 - .github/instructions/languages/typescript.instructions.md
-
-## Project-Specific Rules
-- Use our custom logging service
-- Follow our specific API patterns
-- Use project-specific error handling
