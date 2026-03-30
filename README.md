@@ -109,8 +109,8 @@ jobs:
     secrets:
       AUTOMERGE_APP_ID: ${{ secrets.AUTOMERGE_APP_ID }}
       AUTOMERGE_PEM: ${{ secrets.AUTOMERGE_PEM }}
-
-## sync copilot instructions
+```
+## Sync copilot instructions
 This workflow syncs Copilot instructions from this repo into another repo and opens a PR with the changes.
 
 #### Inputs
