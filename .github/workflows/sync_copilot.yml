@@ -9,7 +9,7 @@ on:
         default: "main"
         type: string
       calling_repo_base_branch:
-        description: "The base branch from the calling repository for"
+        description: "The base branch from the calling repository that should be merged into"
         required: false
         type: string
         default: main
@@ -21,7 +21,7 @@ on:
 
 jobs:
   sync:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-22.04
     permissions:
       contents: write
       pull-requests: write
@@ -41,16 +41,22 @@ jobs:
           path: eps-common-workflows
           repository: NHSDigital/eps-common-workflows
           sparse-checkout: |
-            - .github/instructions/general
-            - .github/instructions/languages
-            - .github/copilot-instructions.md
-            - .github/prompts
+            .github/instructions/general
+            .github/instructions/languages
+            .github/copilot-instructions.md
+            .github/prompts
 
       - name: Copy central instructions
         run: |
-          mv eps-common-workflows/.github/instructions .github/instructions
-          mv eps-common-workflows/.github/copilot-instructions.md .github/copilot-instructions.md
-          mv eps-common-workflows/.github/prompts .github/prompts
+          rm -rf .github/instructions/general
+          rm -rf .github/instructions/languages
+          rm -rf .github/copilot-instructions.md
+          rm -rf .github/prompts
+          mkdir -p .github/instructions/
+          cp -R eps-common-workflows/.github/instructions/general .github/instructions/general
+          cp -R eps-common-workflows/.github/instructions/languages .github/instructions/languages
+          cp eps-common-workflows/.github/copilot-instructions.md .github/copilot-instructions.md
+          cp -R eps-common-workflows/.github/prompts .github/prompts
           rm -rf eps-common-workflows
 
       - name: Create GitHub App Token

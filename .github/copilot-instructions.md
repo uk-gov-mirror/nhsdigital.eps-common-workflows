@@ -11,12 +11,12 @@ Check the following files for any project-specific coding standards or guideline
 Always follow security best practices as outlined in:
 - .github/instructions/general/security.instructions.md
 Follow additional language-specific guidelines in:
-- .github/instructions/language-specific/cdk.instructions.md
-- .github/instructions/language-specific/cloudformation.instructions.md
-- .github/instructions/language-specific/python.instructions.md
-- .github/instructions/language-specific/terraform.instructions.md
-- .github/instructions/language-specific/sam.instructions.md
-- .github/instructions/language-specific/typescript.instructions.md
+- .github/instructions/languages/cdk.instructions.md
+- .github/instructions/languages/cloudformation.instructions.md
+- .github/instructions/languages/python.instructions.md
+- .github/instructions/languages/terraform.instructions.md
+- .github/instructions/languages/sam.instructions.md
+- .github/instructions/languages/typescript.instructions.md
 
 ## Project-Specific Rules
 - Use our custom logging service

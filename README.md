@@ -8,7 +8,7 @@ The workflows that are available to use are
 
 - [Combine Dependabot PRs](#combine-dependabot-prs)
 - [Dependabot Auto Approve and Merge](#dependabot-auto-approve-and-merge)
-- [Sync copilot instructios](#sync-copilot-instructions)
+- [Sync copilot instructions](#sync-copilot-instructions)
 - [PR Title Check](#pr-title-check)
 - [Get Repo Config](#get-repo-config)
 - [Quality Checks](#quality-checks)
@@ -116,7 +116,7 @@ This workflow syncs Copilot instructions from this repo into another repo and op
 #### Inputs
 
 - `common_workflows_ref`: Branch in common workflows repo to sync from. Default: `main`
-- `base_branch`: The base branch in the calling repository. Default: `main`.
+- `calling_repo_base_branch`: The base branch in the calling repository. Default: `main`.
 
 #### Secret Inputs
 
