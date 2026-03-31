@@ -1,6 +1,4 @@
-ARG IMAGE_NAME=node_24_python_3_14
-ARG IMAGE_VERSION=latest
-FROM ghcr.io/nhsdigital/eps-devcontainers/${IMAGE_NAME}:${IMAGE_VERSION}
+FROM ghcr.io/nhsdigital/eps-devcontainers/node_24_python_3_14:v1.2.0
 
 USER root
 # specify DOCKER_GID to force container docker group id to match host

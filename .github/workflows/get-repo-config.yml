@@ -51,7 +51,6 @@ jobs:
             - name: Checkout code
               uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd
               with:
-                  ref: ${{ env.BRANCH_NAME }}
                   fetch-depth: 0
 
             - name: Load config value
@@ -60,6 +59,18 @@ jobs:
                   TAG_FORMAT=$(yq '.TAG_FORMAT' .github/config/settings.yml)
                   DEVCONTAINER_IMAGE=$(jq -r '.build.args.IMAGE_NAME' .devcontainer/devcontainer.json)
                   DEVCONTAINER_VERSION=$(jq -r '.build.args.IMAGE_VERSION' .devcontainer/devcontainer.json)
+                  if [ "$DEVCONTAINER_IMAGE" == "null" ]; then
+                    dockerfile=".devcontainer/Dockerfile"
+
+                    from_ref="$(
+                    awk '/^FROM[[:space:]]+/ { print $2; exit }' "$dockerfile"
+                    )"
+
+                    DEVCONTAINER_IMAGE="${from_ref##*/}"
+                    DEVCONTAINER_IMAGE="${DEVCONTAINER_IMAGE%%:*}"
+
+                    DEVCONTAINER_VERSION="${from_ref##*:}"
+                  fi
                   RUNTIME_DOCKER_IMAGE="${DEVCONTAINER_IMAGE}:githubactions-${DEVCONTAINER_VERSION}"
                   {
                     echo "TAG_FORMAT=$TAG_FORMAT" 
