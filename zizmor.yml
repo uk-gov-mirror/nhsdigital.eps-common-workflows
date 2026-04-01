@@ -11,14 +11,3 @@ rules:
     ignore:
       - quality-checks-devcontainer.yml
       - tag-release-devcontainer.yml
-  excessive-permissions:
-    # these are possible excessive permissions but need time to work out if they are actually excessive or not
-    ignore:
-      - pull_request.yml:1:1
-      - pull_request.yml:11:3
-      - pull_request.yml:18:3
-      - pull_request.yml:21:3
-      - pull_request.yml:26:3
-      - release.yml:1:1
-      - release.yml:11:3
-      - release.yml:13:3

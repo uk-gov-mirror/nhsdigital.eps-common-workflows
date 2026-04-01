@@ -24,7 +24,9 @@ on:
       pinned_image:
         type: string
         required: true
-
+permissions:
+  contents: read
+  id-token: write
 jobs:
   quality_checks:
     runs-on: ubuntu-22.04
