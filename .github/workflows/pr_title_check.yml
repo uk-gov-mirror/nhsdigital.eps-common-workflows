@@ -3,6 +3,7 @@ name: PR Title Check
 on:
     workflow_call:
 
+permissions: {}
 jobs:
     pr_title_format_check:
         runs-on: ubuntu-22.04

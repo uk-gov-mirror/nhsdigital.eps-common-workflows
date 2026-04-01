@@ -39,6 +39,7 @@ on:
                 description: Resolved digest for the supplied image reference
                 value: ${{ jobs.verify_attestation.outputs.resolved_digest }}
 
+permissions: {}
 jobs:
     get_config_values:
         runs-on: ubuntu-22.04

@@ -79,6 +79,8 @@ on:
             PYPI_TOKEN:
                 required: false
                 description: "PyPI token to publish packages"
+
+permissions: {}
 jobs:
     tag_release:
         permissions:
