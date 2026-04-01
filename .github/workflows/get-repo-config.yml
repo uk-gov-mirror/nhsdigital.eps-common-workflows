@@ -43,6 +43,10 @@ permissions: {}
 jobs:
     get_config_values:
         runs-on: ubuntu-22.04
+        permissions:
+            attestations: read
+            contents: read
+            packages: read
         outputs:
             tag_format: ${{ steps.load-config.outputs.TAG_FORMAT }}
             devcontainer_version: ${{ steps.load-config.outputs.DEVCONTAINER_VERSION }}
