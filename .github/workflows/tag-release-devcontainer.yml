@@ -116,7 +116,7 @@ jobs:
               with:
                   repository: ${{ github.repository }}
                   ref: ${{ github.sha }}
-                  persist-credentials: true # needed for semantic-release to push tags and commits
+                  persist-credentials: ${{ ! inputs.dry_run }} # only persist credentials when not running in dry-run mode
 
             - name: Checkout semantic-release workflow
               uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd
