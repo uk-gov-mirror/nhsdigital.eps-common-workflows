@@ -39,9 +39,10 @@ jobs:
         shell: bash
     steps:
       - &init_tool_versions
-        name: copy .tool-versions
+        name: copy .tool-versions and .grant.yaml from devcontainer user to runner home directory
         run: |
           cp /home/vscode/.tool-versions "$HOME/.tool-versions"
+          cp /home/vscode/.grant.yaml "$HOME/.grant.yaml"
 
       - &checkout
         name: Checkout code
