@@ -19,27 +19,9 @@ The workflows that are available to use are
 
 ## Other Docs
 
-- [Adding Exclusions to Trivy Scanning](#adding-exclusions-to-trivy-scanning)
 - [Secret Scanning Docker](#secret-scanning-docker)
 - [Run All Releases](#run-all-releases)
 
-## Adding Exclusions to Trivy Scanning
-The quality checks job uses Trivy to scan for vulnerabilities.   
-There may be times you want to add an exclusion for a known vulnerability that we are happy to accept
-To do this, in the calling repo, add trivy.yaml with this content
-```
-ignorefile: ".trivyignore.yaml"
-```
-and add a .trivyignore.yaml with this content
-```
-vulnerabilities:
-  - id: CVE-2026-24842
-    paths:
-      - "package-lock.json"
-    statement: downstream dependency for tar - waiting for new npm release
-    expired_at: 2026-06-01
-```
-See https://trivy.dev/docs/latest/configuration/filtering/#trivyignoreyaml for more details
 
 ## Combine Dependabot PRs
 

@@ -76,7 +76,7 @@ jobs:
         run: |
           make actionlint
 
-      - name: Check language tools used and setup trivy config
+      - name: Check language tools used
         id: check_languages
         run: |
           if [ -f "pyproject.toml" ] && grep -q '\[tool.poetry\]' "pyproject.toml"; then
