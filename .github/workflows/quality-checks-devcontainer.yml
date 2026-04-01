@@ -76,6 +76,10 @@ jobs:
         run: |
           make actionlint
 
+      - name: Run zizmor
+        run: |
+          make zizmor
+
       - name: Check language tools used
         id: check_languages
         run: |
