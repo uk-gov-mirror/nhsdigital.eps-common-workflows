@@ -42,12 +42,12 @@ jobs:
         shell: bash
     steps:
       - &init_tool_versions
-        name: copy needed files from devcontainer user to runner home directory
+        name: copy needed files from devcontainer user to runner home directory or bin directory
         run: |
           cp /home/vscode/.tool-versions "$HOME/.tool-versions"
           cp /home/vscode/.grant.yaml "$HOME/.grant.yaml"
           mkdir -p "$HOME/.local/bin"
-          cp /home/vscode/.local/bin/zizmor "$HOME/.local/bin/zizmor"
+          sudo cp /home/vscode/.local/bin/zizmor /usr/local/bin/zizmor
 
       - &checkout
         name: Checkout code
