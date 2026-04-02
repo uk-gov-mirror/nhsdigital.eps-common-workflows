@@ -82,6 +82,10 @@ jobs:
           echo "Registering git-secrets AWS rules"
           git-secrets --register-aws
           git-secrets --add-provider -- cat /usr/share/secrets-scanner/nhsd-rules-deny.txt
+          echo "Checking git-secrets configuration"
+          git-secrets --list 
+          echo "Checking content of git-secrets rules"
+          cat /usr/share/secrets-scanner/nhsd-rules-deny.txt
           echo "Running secret scan"
           make secret-scan
       - name: Run actionlint
