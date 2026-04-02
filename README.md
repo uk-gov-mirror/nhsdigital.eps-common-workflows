@@ -135,50 +135,6 @@ jobs:
       SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
 ```
 
-
-## Tag Release
-This workflow uses the semantic-release npm package to generate a new version tag, changelog, and GitHub release for a repo.
-
-#### Inputs
-
-- `dry_run`: Whether to run in dry_run mode (do not create tags) or not
-- `tag_format`: Default `v\\${version}`. A template for the version tag.
-- `branch_name`: The branch name to base the release on
-- `publish_packages`: comma separated list of package folders to publish to an npm registry
-- `asdfVersion`: Override the version of asdf to install.
-- `main_branch`: The branch to use for publishing. Defaults to main
-- `extra_artifact_name`: optional param to include an extra artifact in the release
-- `extra_artifact_id`: optional param of the extra artifact id to include in the release
-- `extra_artifact_run_id`: optional param of the run id to download the extra artifact id to include in the release
-- `extra_artifact_repository`: optional param to indicate which repo the run to download the artifact was from
-
-#### Outputs
-
-- `version_tag`: The version tag created by semantic-release.
-- `change_set_version`: A timestamped string that can be used for creating changesets.
-- `next_version_tag`: The next version tag that will be created.
-
-#### Example
-
-To use this workflow in your repository, call it from another workflow file:
-
-```yaml
-name: Release
-
-on:
-  workflow_dispatch:
-
-jobs:
-  tag_release:
-    uses: NHSDigital/eps-common-workflows/.github/workflows/tag-release.yml@f5c8313a10855d0cc911db6a9cd666494c00045a
-    with:
-      tag_format: "v\\${version}-beta"
-      dry_run: true
-      asdfVersion: 0.18.0
-      branch_name: main
-      publish_packages: ""
-```
-
 ## Tag Release - Devcontainer Version
 This workflow uses the semantic-release npm package to generate a new version tag, changelog, and GitHub release for a repo.   
 *The devcontainer MUST have Node installed*
