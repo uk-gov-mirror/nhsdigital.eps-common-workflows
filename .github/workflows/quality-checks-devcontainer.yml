@@ -77,6 +77,8 @@ jobs:
           make install
       - name: Run secrets scan
         run: |
+          git-secrets --register-aws
+          git-secrets --add-provider -- cat /usr/share/secrets-scanner/nhsd-rules-deny.txt
           make secret-scan
       - name: Run actionlint
         run: |
