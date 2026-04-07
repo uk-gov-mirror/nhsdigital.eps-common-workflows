@@ -49,7 +49,7 @@ jobs:
     needs: get_config_values
     uses: ./.github/workflows/tag-release-devcontainer.yml
     permissions:
-      packages: read
+      packages: write
       id-token: write
       contents: write
     with:
