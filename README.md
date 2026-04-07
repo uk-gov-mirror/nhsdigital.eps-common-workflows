@@ -174,6 +174,10 @@ jobs:
   tag_release:
     uses: NHSDigital/eps-common-workflows/.github/workflows/tag-release-devcontainer.yml@f5c8313a10855d0cc911db6a9cd666494c00045a
     needs: [get_config_values]
+    permissions:
+      id-token: write
+      contents: write
+      packages: write
     with:
       tag_format: "v\\${version}-beta"
       dry_run: true
